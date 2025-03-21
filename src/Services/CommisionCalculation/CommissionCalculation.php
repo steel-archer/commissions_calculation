@@ -4,10 +4,11 @@ namespace SteelArcher\CommissionsCalculation\Services\CommisionCalculation;
 
 class CommissionCalculation extends AbstractCommissionCalculation
 {
-    public function processTransaction(...$args): void
+    public function processTransaction(): void
     {
-        var_dump($args); // @todo
-        var_dump(get_class($this->binResolver));
-        var_dump(get_class($this->exchangeRateResolver));
+        $data = $this->transactionReader->readTransactionData($this->args);
+        foreach ($data as $transaction) {
+            var_dump($transaction); // @todo
+        }
     }
 }

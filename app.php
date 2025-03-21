@@ -3,6 +3,7 @@
 use SteelArcher\CommissionsCalculation\Services\BinResolver\BinlistBinResolver;
 use SteelArcher\CommissionsCalculation\Services\BinResolver\DummyBinResolver;
 use SteelArcher\CommissionsCalculation\Services\CommisionCalculation\CommissionCalculation;
+use SteelArcher\CommissionsCalculation\Services\CommissionCalculationArgs\CommissionCalculationArgs;
 use SteelArcher\CommissionsCalculation\Services\CommissionWriter\ConsoleCommissionWriter;
 use SteelArcher\CommissionsCalculation\Services\CountryHelper;
 use SteelArcher\CommissionsCalculation\Services\ExchangeRateResolver\ApiLayerExchangeRateResolver;
@@ -16,6 +17,7 @@ $options = getopt('', ['dummy']);
 $isDummy = in_array('--dummy', $argv, true);
 
 $commissionCalculation = new CommissionCalculation(
+    new CommissionCalculationArgs($calculationArgs),
     $isDummy ? new DummyBinResolver() : new BinlistBinResolver(),
     $isDummy ? new DummyExchangeRateResolver() : new ApiLayerExchangeRateResolver(),
     new CountryHelper(),
