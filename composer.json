@@ -1,6 +1,6 @@
 {
     "name": "steel-archer/commissions-calculation",
-    "description": "Tesk Task (2025)",
+    "description": "Test Task (2025)",
     "type": "project",
     "autoload": {
         "psr-4": {

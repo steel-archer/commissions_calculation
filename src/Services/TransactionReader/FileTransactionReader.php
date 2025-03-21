@@ -46,7 +46,5 @@ class FileTransactionReader implements TransactionReaderInterface
         } finally {
             fclose($handle);
         }
-
-        return [];
     }
 }
