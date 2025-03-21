@@ -6,6 +6,6 @@ class ApiLayerExchangeRateResolver implements ExchangeRateResolverInterface
 {
     public function getExchangeRates(): array
     {
-        return []; // @todo
+        return []; // @todo. also dotenv
     }
 }

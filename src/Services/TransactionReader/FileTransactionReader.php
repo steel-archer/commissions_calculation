@@ -6,6 +6,7 @@ use JsonException;
 use RuntimeException;
 use SteelArcher\CommissionsCalculation\Services\CommissionCalculationArgs\CommissionCalculationArgs;
 use SteelArcher\CommissionsCalculation\Services\CommissionCalculationArgs\CommissionCalculationArgsInterface;
+use SteelArcher\CommissionsCalculation\Services\Transaction\Transaction;
 
 class FileTransactionReader implements TransactionReaderInterface
 {
@@ -13,6 +14,8 @@ class FileTransactionReader implements TransactionReaderInterface
 
     /**
      * @throws JsonException
+     *
+     * @return iterable|Transaction[]
      */
     public function readTransactionData(CommissionCalculationArgs|CommissionCalculationArgsInterface $args): Iterable
     {
@@ -32,7 +35,13 @@ class FileTransactionReader implements TransactionReaderInterface
 
         try {
             while (($line = fgets($handle)) !== false) {
-                yield json_decode(trim($line), true, 512, JSON_THROW_ON_ERROR);
+                $data = json_decode(trim($line), true, 512, JSON_THROW_ON_ERROR);
+                $transaction = new Transaction(
+                    $data['bin'] ?? null,
+                    $data['amount'] ?? null,
+                    $data['currency'] ?? null,
+                );
+                yield $transaction;
             }
         } finally {
             fclose($handle);

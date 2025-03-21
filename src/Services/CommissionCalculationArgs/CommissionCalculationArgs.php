@@ -6,14 +6,15 @@ class CommissionCalculationArgs implements CommissionCalculationArgsInterface
 {
     protected ?string $filename;
 
-    public function getFilename(): string
+    public function getFilename(): ?string
     {
         return $this->filename;
     }
 
-    public function setFilename(string $filename): CommissionCalculationArgs
+    public function setFilename(?string $filename): CommissionCalculationArgs
     {
         $this->filename = $filename;
+
         return $this;
     }
 
