@@ -36,6 +36,6 @@ class CountryHelper
 
     public static function isEUCountry(string $countryCode): bool
     {
-        return in_array($countryCode, self::EU_COUNTRY_CODES);
+        return in_array(strtoupper($countryCode), self::EU_COUNTRY_CODES);
     }
 }
