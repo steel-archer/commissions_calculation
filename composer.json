@@ -1,0 +1,13 @@
+{
+    "name": "steel-archer/commissions-calculation",
+    "description": "Tesk Task (2025)",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "SteelArcher\\CommissionsCalculation\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=8.1.0"
+    }
+}
