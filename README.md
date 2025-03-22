@@ -2,8 +2,6 @@
 Test Task (2025)
 
 @todo:
-* More dummy bins
-* API implementations
-* Dotenv
+* API implementations (Bin)
 * Tests
 * Readme

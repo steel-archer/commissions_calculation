@@ -12,6 +12,9 @@ use SteelArcher\CommissionsCalculation\Services\TransactionReader\FileTransactio
 
 require __DIR__ . '/vendor/autoload.php';
 
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
 $calculationArgs = $argv[1] ?? null;
 $options = getopt('', ['dummy']);
 $isDummy = in_array('--dummy', $argv, true);
