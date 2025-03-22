@@ -8,6 +8,7 @@ use SteelArcher\CommissionsCalculation\Services\CommissionWriter\ConsoleCommissi
 use SteelArcher\CommissionsCalculation\Services\CountryHelper;
 use SteelArcher\CommissionsCalculation\Services\ExchangeRateResolver\ApiLayerExchangeRateResolver;
 use SteelArcher\CommissionsCalculation\Services\ExchangeRateResolver\DummyExchangeRateResolver;
+use SteelArcher\CommissionsCalculation\Services\FileFetcher;
 use SteelArcher\CommissionsCalculation\Services\TransactionReader\FileTransactionReader;
 
 require __DIR__ . '/vendor/autoload.php';
@@ -19,10 +20,12 @@ $calculationArgs = $argv[1] ?? null;
 $options = getopt('', ['dummy']);
 $isDummy = in_array('--dummy', $argv, true);
 
+$fileFetcher = new FileFetcher();
+
 $commissionCalculation = new CommissionCalculation(
     new CommissionCalculationArgs($calculationArgs),
     $isDummy ? new DummyBinResolver() : new BinlistBinResolver(),
-    $isDummy ? new DummyExchangeRateResolver() : new ApiLayerExchangeRateResolver(),
+    $isDummy ? new DummyExchangeRateResolver() : new ApiLayerExchangeRateResolver($fileFetcher),
     new CountryHelper(),
     new FileTransactionReader(),
     new ConsoleCommissionWriter()

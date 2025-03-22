@@ -4,20 +4,21 @@ namespace SteelArcher\CommissionsCalculation\Services\ExchangeRateResolver;
 
 use DomainException;
 use JsonException;
+use SteelArcher\CommissionsCalculation\Services\FileFetcher;
 
 class ApiLayerExchangeRateResolver implements ExchangeRateResolverInterface
 {
     protected string $key;
     protected string $uri;
 
-    public function __construct()
+    public function __construct(protected FileFetcher $fileFetcher)
     {
-        $this->key = $_ENV['APILAYER_API_KEY'];
+        $this->key = $_ENV['APILAYER_API_KEY'] ?? '';
         if (!$this->key) {
             throw new DomainException('Please set APILAYER_API_KEY environment variable.');
         }
 
-        $this->uri = $_ENV['APILAYER_URI'];
+        $this->uri = $_ENV['APILAYER_URI'] ?? '';
         if (!$this->uri) {
             throw new DomainException('Please set APILAYER_URI environment variable.');
         }
@@ -30,7 +31,7 @@ class ApiLayerExchangeRateResolver implements ExchangeRateResolverInterface
      */
     public function getExchangeRates(): array
     {
-        $rawContent = trim(file_get_contents($this->uri));
+        $rawContent = trim($this->fileFetcher->getContents($this->uri));
 
         if (empty($rawContent)) {
             throw new DomainException('Unable to retrieve exchange rates.');

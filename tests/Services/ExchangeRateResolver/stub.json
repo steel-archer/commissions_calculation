@@ -1,0 +1,10 @@
+{
+  "success":true,
+  "timestamp":1742572143,
+  "base":"EUR",
+  "date":"2025-03-21",
+  "rates":{
+    "EUR":1,
+    "UAH":45
+  }
+}
