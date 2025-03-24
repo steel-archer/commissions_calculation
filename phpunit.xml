@@ -28,6 +28,7 @@
         <exclude>
             <file>src/Services/FileFetcher.php</file>
             <file>src/Services/BinResolver/DummyBinResolver.php</file>
+            <file>src/Services/CommissionWriter/ConsoleCommissionWriter.php</file>
             <file>src/Services/ExchangeRateResolver/DummyExchangeRateResolver.php</file>
         </exclude>
     </source>
