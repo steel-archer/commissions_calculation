@@ -1,6 +1,6 @@
 <?php
 
-namespace BinResolver;
+namespace SteelArcher\Tests\CommissionsCalculation\Services\BinResolver;
 
 use DomainException;
 use JsonException;

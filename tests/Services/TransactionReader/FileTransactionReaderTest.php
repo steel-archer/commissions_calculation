@@ -1,6 +1,6 @@
 <?php
 
-namespace TransactionReader;
+namespace SteelArcher\Tests\CommissionsCalculation\Services\TransactionReader;
 
 use JsonException;
 use PHPUnit\Framework\Attributes\CoversClass;

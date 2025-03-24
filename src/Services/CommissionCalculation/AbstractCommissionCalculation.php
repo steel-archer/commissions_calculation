@@ -6,7 +6,6 @@ use SteelArcher\CommissionsCalculation\Services\BinResolver\BinResolverInterface
 use SteelArcher\CommissionsCalculation\Services\Calculator\CalculatorInterface;
 use SteelArcher\CommissionsCalculation\Services\CommissionCalculationArgs\CommissionCalculationArgsInterface;
 use SteelArcher\CommissionsCalculation\Services\CommissionWriter\CommissionWriterInterface;
-use SteelArcher\CommissionsCalculation\Services\CountryHelper;
 use SteelArcher\CommissionsCalculation\Services\ExchangeRateResolver\ExchangeRateResolverInterface;
 use SteelArcher\CommissionsCalculation\Services\TransactionReader\TransactionReaderInterface;
 

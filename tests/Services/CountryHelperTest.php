@@ -1,5 +1,7 @@
 <?php
 
+namespace SteelArcher\Tests\CommissionsCalculation\Services;
+
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 use SteelArcher\CommissionsCalculation\Services\CountryHelper;

@@ -1,5 +1,9 @@
 <?php
 
+namespace SteelArcher\Tests\CommissionsCalculation\Services\ExchangeRateResolver;
+
+use DomainException;
+use JsonException;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\MockObject\Exception as MockException;
 use PHPUnit\Framework\MockObject\MockObject;
