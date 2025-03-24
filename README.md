@@ -2,6 +2,5 @@
 Test Task (2025)
 
 @todo:
-* API implementations (Bin)
 * Tests
 * Readme

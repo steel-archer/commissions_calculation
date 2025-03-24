@@ -24,7 +24,7 @@ $fileFetcher = new FileFetcher();
 
 $commissionCalculation = new CommissionCalculation(
     new CommissionCalculationArgs($calculationArgs),
-    $isDummy ? new DummyBinResolver() : new BinlistBinResolver(),
+    $isDummy ? new DummyBinResolver() : new BinlistBinResolver($fileFetcher),
     $isDummy ? new DummyExchangeRateResolver() : new ApiLayerExchangeRateResolver($fileFetcher),
     new CountryHelper(),
     new FileTransactionReader(),
