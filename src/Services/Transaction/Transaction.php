@@ -50,7 +50,7 @@ class Transaction implements TransactionInterface
     {
         $errors = [];
 
-        if (!ctype_digit($bin)) {
+        if (empty($bin) || !ctype_digit($bin)) {
             $errors[] = 'Bin must be integer.';
         }
         if (!is_numeric($amount)) {
