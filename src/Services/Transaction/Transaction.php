@@ -46,11 +46,11 @@ class Transaction implements TransactionInterface
         return $this;
     }
 
-    public function __construct(?int $bin = null, ?float $amount = null, ?string $currency = null)
+    public function __construct(mixed $bin = null, mixed $amount = null, mixed $currency = null)
     {
         $errors = [];
 
-        if (!is_int($bin)) {
+        if (!ctype_digit($bin)) {
             $errors[] = 'Bin must be integer.';
         }
         if (!is_numeric($amount)) {

@@ -10,8 +10,6 @@ use SteelArcher\CommissionsCalculation\Services\Transaction\Transaction;
 
 class FileTransactionReader implements TransactionReaderInterface
 {
-    protected const ERROR_WRONG_CLASS = 'Args must be of CommissionCalculationArgs, %d provided.';
-
     /**
      * @throws JsonException
      *
@@ -19,16 +17,12 @@ class FileTransactionReader implements TransactionReaderInterface
      */
     public function readTransactionData(CommissionCalculationArgs|CommissionCalculationArgsInterface $args): Iterable
     {
-        if (!($args instanceof CommissionCalculationArgs)) {
-            throw new RuntimeException(sprintf(self::ERROR_WRONG_CLASS, get_class($args)));
-        }
-
         $filename = $args->getFilename();
-        if (!$filename) {
+        if (empty($filename)) {
             throw new RuntimeException('No transaction data file provided.');
         }
 
-        $handle = fopen($filename, 'rb');
+        $handle = @fopen($filename, 'rb');
         if (!$handle) {
             throw new RuntimeException("Cannot open file: $filename.");
         }

@@ -1,0 +1,1 @@
+{"bin":"foo","amount":"bar","currency":"bazz"}
