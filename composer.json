@@ -4,13 +4,14 @@
     "type": "project",
     "autoload": {
         "psr-4": {
-            "SteelArcher\\CommissionsCalculation\\": "src/"
+            "SteelArcher\\CommissionsCalculation\\": "src/",
+            "SteelArcher\\Tests\\CommissionsCalculation\\": "tests/"
         }
     },
     "require": {
         "php": ">=8.1.0",
         "ext-curl": "*",
-        "vlucas/phpdotenv": "^5.6",
+        "vlucas/phpdotenv": "^5.6"
     },
     "require-dev": {
         "phpunit/phpunit": "^10.5"
