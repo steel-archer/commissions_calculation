@@ -6,7 +6,7 @@
 
 **API limits**
 * Exchange rate API requires registration. It works no more without a passed API key.
-* Bin API has a limit: 5 requests per hour. Registration seems to be approved manually and I still do not have a key. So I have to leave it as is. After 5th request there will be an error.
+* Bin API has a limit: 5 requests per hour. Registration seems to be approved manually and I still haven't received a key. So I have to leave it as is. After 5th request there will be an error that there were too many requests..
 
 **Dummy resolvers**
 That's why in addition to normal implementation of API I also had to implement Dummy Resolvers that return pre-defined data:
